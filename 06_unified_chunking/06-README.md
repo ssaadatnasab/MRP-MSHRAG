@@ -17,7 +17,36 @@ If a Markdown file and its corresponding JSON output don't share an
 identical filename, they're paired by fuzzy filename similarity
 (`--threshold`, default `0.80`).
 
-## 2. Chunk the unified corpus
+## 2. Build the multimodal chunk corpora (Image / Formula / Table)
+
+Builds the three specialized retrieval corpora — image, formula, and
+table — that the agentic RAG framework (Stage 09, "Stage 0.5 multimodal
+triage") queries independently before main-corpus retrieval.
+
+`merge_multimodal_json_to_jsonl.py` walks a directory containing three
+subfolders (`Formula/`, `Image/`, `Table/`), each holding per-document
+JSON chunk files produced upstream by the formula/table enrichment and
+figure-extraction stages (Stages 4–5), and merges each subfolder's JSON
+files into a single `.jsonl` file:
+
+```
+Formula/Formula.jsonl
+Image/Image.jsonl
+Table/Table.jsonl
+```
+
+Each line in the output is one chunk record (a JSON object), ready to be
+embedded and indexed.
+
+**Usage:** edit `BASE_DIR` at the top of the script to point at your
+local multimodal chunk directory (wherever your Formula/Image/Table JSON
+files live), then run:
+
+```bash
+python merge_multimodal_json_to_jsonl.py
+```
+
+## 3. Chunk the unified corpus
 
 No single chunking strategy is optimal for every content type or
 downstream use case, so four independent strategies are provided, each
@@ -54,42 +83,13 @@ smaller child chunk size than its parent chunk size, since the child tier
 is meant to be the fine-grained retrieval unit rather than the
 context-bearing one.
 
-## 3. Build the multimodal chunk corpora (Image / Formula / Table)
-
-Builds the three specialized retrieval corpora — image, formula, and
-table — that the agentic RAG framework (Stage 09, "Stage 0.5 multimodal
-triage") queries independently before main-corpus retrieval.
-
-`merge_multimodal_json_to_jsonl.py` walks a directory containing three
-subfolders (`Formula/`, `Image/`, `Table/`), each holding per-document
-JSON chunk files produced upstream by steps 1–2 above (and by the
-formula/table enrichment and figure-extraction stages further upstream),
-and merges each subfolder's JSON files into a single `.jsonl` file:
-
-```
-Formula/Formula.jsonl
-Image/Image.jsonl
-Table/Table.jsonl
-```
-
-Each line in the output is one chunk record (a JSON object), ready to be
-embedded and indexed.
-
-**Usage:** edit `BASE_DIR` at the top of the script to point at your
-local multimodal chunk directory (wherever your Formula/Image/Table JSON
-files live), then run:
-
-```bash
-python merge_multimodal_json_to_jsonl.py
-```
-
 ## Output
 
 - A unified per-document Markdown file plus three modality-separated JSON
   files (formulas, tables, figures) — from step 1
-- One chunked JSON/JSONL index per strategy run — from step 2
-- `Formula.jsonl`, `Image.jsonl`, `Table.jsonl` — from step 3, which are
+- `Formula.jsonl`, `Image.jsonl`, `Table.jsonl` — from step 2, which are
   what you point `--formula_corpus`, `--image_corpus`, and
   `--table_corpus` at in Stage 09 (`09_agentic_rag_starag/`)
+- One chunked JSON/JSONL index per strategy run — from step 3
 
 All outputs are ready for embedding and indexing into a vector store.
