@@ -81,9 +81,21 @@ Each stage folder has its own short README with the exact command to run it.
 ```bash
 git clone https://github.com/[your-username]/[repo-name].git
 cd [repo-name]
-python -m venv .venv && source .venv/bin/activate
+
+# Create and activate a virtual environment (optional but recommended)
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+
+# Python dependencies
 pip install -r requirements.txt
-cp .env.example .env   # then fill in your API key / endpoint
+
+# PDF → Markdown converter (Stage 2)
+pip install marker-pdf
+
+# Optional: only needed if you use the mdast-based heading normalizer (Stage 3)
+npm install remark remark-parse remark-stringify mdast-normalize-headings
+
+# API / model configuration
+cp .env.example .env   # then fill in your LLM_API_KEY and LLM_API_BASE_URL
 ```
 
 ### Run a stage
