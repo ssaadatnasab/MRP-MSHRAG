@@ -2,7 +2,10 @@
 Six-stage pipeline that converts a corpus of engineering textbooks (PDF) into a chunked, retrieval-ready knowledge base, using domain-adapted LLM enrichment for formulas, tables, and figures, and four distinct chunking strategies for downstream RAG evaluation.
 > Companion code for: *[Paper title], [Authors], [Venue, Year]* — [link/DOI once available]
 
-![Pipeline overview](docs/pipeline_diagram.png)
+## Pipeline overview
+
+<img width="800" height="250" alt="pipeline_diagram" src="https://github.com/user-attachments/assets/785b483c-9626-4cf0-8e84-15034f7b4156" />
+
 
 ## Pipeline stages
 
