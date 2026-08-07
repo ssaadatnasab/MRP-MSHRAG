@@ -20,8 +20,7 @@ identical filename, they're paired by fuzzy filename similarity
 ## 2. Build the multimodal chunk corpora (Image / Formula / Table)
 
 Builds the three specialized retrieval corpora — image, formula, and
-table — that the agentic RAG framework (Stage 09, "Stage 0.5 multimodal
-triage") queries independently before main-corpus retrieval.
+table — that the agentic RAG framework queries independently before main-corpus retrieval.
 
 `merge_multimodal_json_to_jsonl.py` walks a directory containing three
 subfolders (`Formula/`, `Image/`, `Table/`), each holding per-document
