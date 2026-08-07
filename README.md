@@ -8,7 +8,7 @@ Six-stage pipeline that converts a corpus of engineering textbooks (PDF) into a 
 
 | # | Stage | What it does | Code |
 |---|---|---|---|
-| 1 | PDF Collection | 181 textbooks across 12 core domains | *(corpus manifest, not code — see [Data](#data))* |
+| 1 | PDF Collection | Textbooks | *(corpus manifest, not code * |
 | 2 | Markdown Extraction | PDF → Markdown via [Marker](https://github.com/VikParuchuri/marker); structure and images preserved | `02_markdown_extraction/` |
 | 3 | Structural Normalization | Page-artifact cleanup, heading-format detection, heading-hierarchy normalization | `03_structural_normalization/` |
 | 4 | Formula & Table Enrichment | LLM-generated natural-language descriptions and metadata attached to every formula and table | `04_formula_table_enrichment/` |
@@ -71,11 +71,6 @@ python 02_markdown_extraction/convert_pdfs_to_markdown.py \
     --pdf-root /path/to/pdfs --out-root /path/to/output --workers 4
 ```
 See each stage folder for its full argument list (`--help` on any script).
-
-## Data
-The 181-book corpus is not redistributed in this repository due to copyright.
-[Add a sentence here on how a reader could reconstruct/request the corpus, or
-point to a manifest of titles/editions used.]
 
 ## Citation
 If you use this pipeline, please cite:
