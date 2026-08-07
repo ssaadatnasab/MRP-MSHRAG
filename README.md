@@ -99,13 +99,6 @@ npm install remark remark-parse remark-stringify mdast-normalize-headings
 cp .env.example .env   # then fill in your LLM_API_KEY and LLM_API_BASE_URL
 ```
 
-### Run a stage
-```bash
-python 02_markdown_extraction/convert_pdfs_to_markdown.py \
-    --pdf-root /path/to/pdfs --out-root /path/to/output --workers 4
-```
-See each stage folder for its full argument list (`--help` on any script).
-
 ## Citation
 If you use this pipeline, please cite:
 ```bibtex
