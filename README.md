@@ -6,6 +6,24 @@ Six-stage pipeline that converts a corpus of engineering textbooks (PDF) into a 
 
 <img width="4638" height="1714" alt="Picture 1 (1)" src="https://github.com/user-attachments/assets/18c0680e-5e8c-434c-b027-32525da24f0c" />
 
+## Domain-adapted processing architecture
+
+<img width="3327" height="1760" alt="Picture 11" src="https://github.com/user-attachments/assets/3c450d43-5974-42ef-9d28-bbf74dd64b0d" />
+
+Formulas, tables, texts, and images are first converted to a unified Markdown
+representation, then repaired (page-artifact removal, heading-hierarchy
+restoration) before formula/table content is enriched by an LLM and figure
+content by a vision-language model. Both paths are guided by domain-informed,
+tailored prompts and constrained to Pydantic schemas, which validate the
+model's output format before it is converted into natural-language
+descriptions and structured metadata. The two paths converge into one
+per-book representation, which is then split using four chunking strategies,
+embedded, and indexed.
+
+The dashed red path shows the generic baseline this is evaluated against: a
+naive PDF-utility text extraction with no structure repair, no schema
+validation, and no content-type-specific handling — text, tables, and
+figures are all flattened the same way before chunking.
 
 ## Pipeline stages
 
