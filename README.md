@@ -8,9 +8,7 @@ Six-stage pipeline that converts a corpus of engineering textbooks (PDF) into a 
 
 ## Domain-adapted processing architecture
 
-
-<img width="3327" height="1760" alt="image" src="https://github.com/user-attachments/assets/92748f9c-2dd2-4448-8a5d-315e5883f53c" />
-
+<img width="3327" height="1760" alt="image" src="https://github.com/user-attachments/assets/5dc1b0bb-372d-4857-8462-2aa1acf8135a" />
 
 Formulas, tables, texts, and images are first converted to a unified Markdown
 representation, then repaired (page-artifact removal, heading-hierarchy
