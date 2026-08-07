@@ -85,10 +85,10 @@ context-bearing one.
 ## Output
 
 - A unified per-document Markdown file plus three modality-separated JSON
-  files (formulas, tables, figures) — from step 1
+  files (formulas, tables, figures)
 - `Formula.jsonl`, `Image.jsonl`, `Table.jsonl` — from step 2, which are
   what you point `--formula_corpus`, `--image_corpus`, and
-  `--table_corpus` at in Stage 09 (`09_agentic_rag_starag/`)
-- One chunked JSON/JSONL index per strategy run — from step 3
+  `--table_corpus` 
+- One chunked JSON/JSONL index per strategy run 
 
 All outputs are ready for embedding and indexing into a vector store.
