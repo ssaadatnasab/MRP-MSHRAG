@@ -76,9 +76,7 @@ Each stage folder has its own short README with the exact command to run it.
 
 ### Prerequisites
 - Python 3.10+
-- [Marker](https://github.com/VikParuchuri/marker) (`pip install marker-pdf`) for Stage 2
 - [Ollama](https://ollama.com) running locally (or an OpenAI-compatible API endpoint) for the LLM-based classification/enrichment/extraction steps
-- Node.js 18+ with `npm install remark remark-parse remark-stringify mdast-normalize-headings` if using the mdast-based heading normalizer in Stage 3
 
 ### Install
 ```bash
