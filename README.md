@@ -62,10 +62,6 @@ Each stage folder has its own short README with the exact command to run it.
 │   ├── chunk_parent_child.py
 │   ├── chunk_content_type_aware.py
 │   └── chunk_hierarchical.py
-├── docs/
-│   └── pipeline_diagram.png
-├── requirements.txt
-├── .env.example
 └── README.md
 ```
 
