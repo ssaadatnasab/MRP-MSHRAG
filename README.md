@@ -43,26 +43,26 @@ Each stage folder has its own short README with the exact command to run it.
 ```
 .
 ├── 01_pdf_collection/
-│   └── README.md                    # corpus manifest / book list (no code)
+│   └── 01-README.md                    # corpus manifest / book list (no code)
 ├── 02_markdown_extraction/
-│   ├── README.md
+│   ├── 02-README.md
 │   └── convert_pdfs_to_markdown.py
 ├── 03_structural_normalization/
-│   ├── README.md
+│   ├── 03-README.md
 │   ├── clean_page_artifacts.py
 │   ├── detect_heading_format.py
 │   ├── normalize_headings_mdast.py
 │   └── normalize_headings_reheader.py
 ├── 04_formula_table_enrichment/
-│   ├── README.md
+│   ├── 04-README.md
 │   ├── enrich_formulas_and_tables.py
 │   ├── clean_enrichment_artifacts.py
 │   └── adjust_table_widths.py
 ├── 05_figure_extraction/
-│   ├── README.md
+│   ├── 05-README.md
 │   └── extract_figure_metadata.py
 ├── 06_unified_chunking/
-│   ├── README.md
+│   ├── 06-README.md
 │   ├── merge_stage_outputs.py
 │   ├── chunk_atomic_block_protection.py
 │   ├── chunk_parent_child.py
