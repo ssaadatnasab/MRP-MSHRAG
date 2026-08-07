@@ -88,9 +88,3 @@ If you use this pipeline, please cite:
   doi     = {[DOI]}
 }
 ```
-
-## License
-[MIT / BSD-3-Clause / Apache-2.0 — confirm with your institution before adding a LICENSE file]
-
-## Acknowledgments
-[Funding statement, matching the manuscript's Acknowledgments section]
