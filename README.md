@@ -4,7 +4,7 @@ Six-stage pipeline that converts a corpus of engineering textbooks (PDF) into a 
 
 ## Pipeline overview
 
-<img width="800" height="250" alt="pipeline_diagram" src="https://github.com/user-attachments/assets/785b483c-9626-4cf0-8e84-15034f7b4156" />
+<img width="4638" height="1714" alt="Picture 1 (1)" src="https://github.com/user-attachments/assets/18c0680e-5e8c-434c-b027-32525da24f0c" />
 
 
 ## Pipeline stages
