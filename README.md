@@ -61,7 +61,8 @@ Each stage folder has its own short README with the exact command to run it.
 │   └── adjust_table_widths.py
 ├── 05_figure_extraction/
 │   ├── 05-README.md
-│   └── extract_figure_metadata.py
+│   ├── extract_figure_metadata.py
+│   └── json_to_markdown_injector.py
 ├── 06_unified_chunking/
 │   ├── 06-README.md
 │   ├── merge_multimodal_json_to_jsonl.py
