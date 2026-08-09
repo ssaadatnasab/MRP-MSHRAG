@@ -21,10 +21,10 @@ Useful flags include `--dry-run` (preview without writing), `--force` (reprocess
 
 ## 2. Insert extracted content back into Markdown
 
-The companion script `JSON_To_Markdown_Adding copy 3.py` can take the generated JSON results and insert the extracted content back into the Markdown at the matching image-reference locations. This makes the enriched observations visible directly inside the document.
+The companion script `extract_figure_metadata.py` can take the generated JSON results and insert the extracted content back into the Markdown at the matching image-reference locations. This makes the enriched observations visible directly inside the document.
 
 ```bash
-python "JSON_To_Markdown_Adding copy 3.py" \
+python "extract_figure_metadata.py" \
   --json /path/to/figure_metadata.json \
   --md /path/to/input.md \
   --output /path/to/output.md
