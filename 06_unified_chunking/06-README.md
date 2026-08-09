@@ -1,23 +1,7 @@
 # Stage 6: Unified Representation, Chunking & Multimodal Corpora
 
-## 1. Merge stage outputs
 
-Merges the structured figure metadata from Stage 5 into the enriched
-Markdown from Stage 4, using each image's original Markdown reference as
-the matching key, producing one unified per-document Markdown file.
-
-```bash
-python merge_stage_outputs.py \
-    --md-root /path/to/stage4_output \
-    --json-root /path/to/stage5_output \
-    --output-root /path/to/unified
-```
-
-If a Markdown file and its corresponding JSON output don't share an
-identical filename, they're paired by fuzzy filename similarity
-(`--threshold`, default `0.80`).
-
-## 2. Build the multimodal chunk corpora (Image / Formula / Table)
+## 1. Build the multimodal chunk corpora (Image / Formula / Table)
 
 Builds the three specialized retrieval corpora — image, formula, and
 table — that the agentic RAG framework queries independently before main-corpus retrieval.
@@ -45,7 +29,7 @@ files live), then run:
 python merge_multimodal_json_to_jsonl.py
 ```
 
-## 3. Chunk the unified corpus
+## 2. Chunk the unified corpus
 
 No single chunking strategy is optimal for every content type or
 downstream use case, so four independent strategies are provided, each
