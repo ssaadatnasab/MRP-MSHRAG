@@ -5,6 +5,7 @@ PDF-to-Markdown conversion reliably preserves text content but frequently introd
 
 This folder supports Stage 3 of the preprocessing pipeline using current scripts:
 
+- `clean_page_artifacts.py` — removing page span tags and anchor links`.
 - `LLM_detector.py` — classifies each Markdown document as `numbered` or `non-numbered`.
 - `normalize_heading_pipeline.py` — normalizes heading hierarchy and routes documents automatically.
 - `normalize_headings_mdast.py` — direct mdast-based heading normalizer.
