@@ -50,7 +50,8 @@ Each stage folder has its own short README with the exact command to run it.
 ├── 03_structural_normalization/
 │   ├── 03-README.md
 │   ├── clean_page_artifacts.py
-│   ├── detect_heading_format.py
+│   ├── LLM_detector.py
+│   ├── normalize_heading_pipeline.py
 │   ├── normalize_headings_mdast.py
 │   └── normalize_headings_reheader.py
 ├── 04_formula_table_enrichment/
