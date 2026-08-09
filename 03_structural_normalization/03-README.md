@@ -1,4 +1,7 @@
 # Stage 3: Markdown Structural Normalization
+[](https://github.com/ssaadatnasab/MRP-Multimodal-RAG-Preprocessing/blob/main/03_structural_normalization/03-README.md#stage-3-markdown-structural-normalization)
+
+PDF-to-Markdown conversion reliably preserves text content but frequently introduces two kinds of structural noise: leftover page-marker artifacts and flattened heading hierarchies (headings that were originally at different logical levels all collapse to the same Markdown level, e.g. everything becomes `#` or `##`). This stage repairs both, in three steps.
 
 This folder supports Stage 3 of the preprocessing pipeline using current scripts:
 
@@ -7,11 +10,9 @@ This folder supports Stage 3 of the preprocessing pipeline using current scripts
 - `normalize_headings_mdast.py` — direct mdast-based heading normalizer.
 - `normalize_headings_reheader.py` — direct numbered-heading reheader normalizer.
 
-## Adjusted Stage 3 Workflow
+## 1. Clean page-marker artifacts
 
-### 1. Clean page-marker artifacts
-
-This step remains the same as before:
+Strips page-marker span tags (e.g. `<span id="page-31-0">Page 31</span>`) and unwraps page-anchor links (e.g. `[Foreword](#page-6-0)` → `Foreword`).
 
 ```bash
 python clean_page_artifacts.py \
@@ -19,7 +20,7 @@ python clean_page_artifacts.py \
     --output-dir /path/to/cleaned
 ```
 
-### 2. Detect heading format
+## 2. Detect heading format
 
 Use `LLM_detector.py` to classify cleaned Markdown documents. It prints one label per file:
 
@@ -38,7 +39,7 @@ If you want to force LLM-only behavior, add:
 
 The script falls back to a deterministic heuristic when the LLM is unavailable or ambiguous.
 
-### 3. Normalize heading hierarchy
+## 3. Normalize heading hierarchy
 
 The current codebase provides two direct normalization tools and one recommended orchestration script.
 
@@ -75,7 +76,7 @@ python "$(pwd)/Markdown Refinement/MD-Reheader/normalize_headings_reheader.py" \
     --output-root /path/to/normalized
 ```
 
-### Optional section testing
+## Optional section testing
 
 To inspect intermediate behavior for a single file:
 
