@@ -66,7 +66,6 @@ Each stage folder has its own short README with the exact command to run it.
 ├── 06_unified_chunking/
 │   ├── 06-README.md
 │   ├── merge_multimodal_json_to_jsonl.py
-│   ├── merge_stage_outputs.py
 │   ├── chunk_atomic_block_protection.py
 │   ├── chunk_parent_child.py
 │   ├── chunk_content_type_aware.py
