@@ -1,9 +1,11 @@
 # Stage 3: Markdown Structural Normalization
 
-This folder supports Stage 3 of the preprocessing pipeline using two current scripts:
+This folder supports Stage 3 of the preprocessing pipeline using current scripts:
 
 - `LLM_detector.py` — classifies each Markdown document as `numbered` or `non-numbered`.
-- `MD_Refinement.py` — normalizes heading hierarchy and routes documents automatically.
+- `normalize_heading_pipeline.py` — normalizes heading hierarchy and routes documents automatically.
+- `normalize_headings_mdast.py` — direct mdast-based heading normalizer.
+- `normalize_headings_reheader.py` — direct numbered-heading reheader normalizer.
 
 ## Adjusted Stage 3 Workflow
 
@@ -38,45 +40,63 @@ The script falls back to a deterministic heuristic when the LLM is unavailable o
 
 ### 3. Normalize heading hierarchy
 
-In the current codebase, `MD_Refinement.py` replaces the previous separate `normalize_headings_mdast.py` and `normalize_headings_reheader.py` steps.
+The current codebase provides two direct normalization tools and one recommended orchestration script.
 
-Run the unified refinement pipeline on the cleaned documents:
+- `normalize_headings_mdast.py` is the `mdast`-based normalizer.
+- `normalize_headings_reheader.py` is the numbered-heading reheader normalizer.
+- `normalize_heading_pipeline.py` is the central Stage 3 orchestrator that detects document format and routes each file to the correct backend.
+
+Recommended usage: run the unified refinement pipeline on the cleaned documents:
 
 ```bash
-python "$(pwd)/Markdown Refinement/MD_Refinement.py" \
+python "$(pwd)/Markdown Refinement/normalize_heading_pipeline.py" \
     --input-dir /path/to/cleaned \
     --output-dir /path/to/normalized
 ```
 
-This script will:
+This orchestrator will:
 
 - detect each document's heading format internally,
-- route non-numbered documents through `mdast-normalize-headings`,
-- route numbered documents through `marktripy`,
+- route non-numbered documents through `mdast-normalize-headings` using `normalize_headings_mdast.py`,
+- route numbered documents through `reheader`/`md-reheader` using `normalize_headings_reheader.py`,
 - fall back to local rule-based normalization when external tools are unavailable.
+
+If you prefer to run the direct normalizer scripts instead of the orchestrator:
+
+```bash
+python "$(pwd)/Markdown Refinement/Mdast-Util-Normalize-Headings/normalize_headings_mdast.py" \
+    --input-dir /path/to/non_numbered \
+    --output-root /path/to/normalized
+```
+
+```bash
+python "$(pwd)/Markdown Refinement/MD-Reheader/normalize_headings_reheader.py" \
+    --input-dir /path/to/numbered \
+    --output-root /path/to/normalized
+```
 
 ### Optional section testing
 
 To inspect intermediate behavior for a single file:
 
 ```bash
-python "$(pwd)/Markdown Refinement/MD_Refinement.py" \
+python "$(pwd)/Markdown Refinement/normalize_heading_pipeline.py" \
     --section heuristic --file /path/to/file.md
 ```
 
 ```bash
-python "$(pwd)/Markdown Refinement/MD_Refinement.py" \
+python "$(pwd)/Markdown Refinement/normalize_heading_pipeline.py" \
     --section llm --file /path/to/file.md
 ```
 
 ```bash
-python "$(pwd)/Markdown Refinement/MD_Refinement.py" \
+python "$(pwd)/Markdown Refinement/normalize_heading_pipeline.py" \
     --section marktripy --file /path/to/file.md \
     --output-file /path/to/out.md
 ```
 
 ```bash
-python "$(pwd)/Markdown Refinement/MD_Refinement.py" \
+python "$(pwd)/Markdown Refinement/normalize_heading_pipeline.py" \
     --section mdast --file /path/to/file.md \
     --output-file /path/to/out.md
 ```
@@ -88,5 +108,7 @@ The output is structurally consistent Markdown with restored heading hierarchy, 
 ## Key change from previous docs
 
 - `detect_heading_format.py` now maps to `Markdown Refinement/LLM detector/LLM_detector.py`.
-- `normalize_headings_mdast.py` and `normalize_headings_reheader.py` are not used directly in the current code.
-- `MD_Refinement.py` is the central normalization entrypoint for Stage 3.
+- The direct Stage 3 normalizers are now:
+  - `Markdown Refinement/Mdast-Util-Normalize-Headings/normalize_headings_mdast.py`
+  - `Markdown Refinement/MD-Reheader/normalize_headings_reheader.py`
+- `normalize_heading_pipeline.py` is the central normalization entrypoint for Stage 3.
