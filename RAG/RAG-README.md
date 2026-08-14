@@ -42,6 +42,7 @@ The Python dependencies are listed in `requirements.txt`. Key packages used by t
 - langchain-community
 - python-dotenv
 
+```bash
 # Core data and ML stack
 pip install pandas numpy
 
@@ -53,6 +54,7 @@ pip install langchain langchain-huggingface langchain-community
 
 # API client, environment helpers, and utilities
 pip install openai python-dotenv requests
+```
 
 ## Layout & important files
 
