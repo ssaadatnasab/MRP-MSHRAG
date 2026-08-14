@@ -46,19 +46,6 @@ The Python dependencies are listed in `requirements.txt`. Key packages used by t
 - requests
 - marker-pdf
 
-Install the Python packages with:
-
-```bash
-pip install -r requirements.txt
-# `marker-pdf` is also listed in `requirements.txt`, but you can install it separately if preferred:
-pip install marker-pdf
-```
-
-If you use the mdast-based heading normalizer (optional stage), install the Node tooling:
-
-```bash
-npm install remark remark-parse remark-stringify mdast-normalize-headings
-```
 
 ## Layout & important files
 
