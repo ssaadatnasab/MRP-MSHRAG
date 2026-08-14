@@ -25,7 +25,7 @@ naive PDF-utility text extraction with no structure repair, no schema
 validation, and no content-type-specific handling — text, tables, and
 figures are all flattened the same way before chunking.
 
-## Pipeline stages
+## Preprocessing Pipeline stages
 
 | # | Stage | What it does | Code |
 |---|---|---|---|
