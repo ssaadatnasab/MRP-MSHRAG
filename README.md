@@ -1,4 +1,4 @@
-# MRP: Multimodal-RAG-Preprocessing
+# MRP&MSHRAG: Multimodal-RAG-Preprocessing & Multi-Stage-Hybrid-RAG
 Six-stage pipeline that converts a corpus of engineering textbooks (PDF) into a chunked, retrieval-ready knowledge base, using domain-adapted LLM enrichment for formulas, tables, and figures, and four distinct chunking strategies for downstream RAG evaluation.
 > Companion code for: *[Paper title], [Authors], [Venue, Year]* — [link/DOI once available]
 
@@ -70,6 +70,14 @@ Each stage folder has its own short README with the exact command to run it.
 │   ├── chunk_parent_child.py
 │   ├── chunk_content_type_aware.py
 │   └── chunk_hierarchical.py
+├── RAG/
+│   ├── RAG-README.md
+│   ├── LLM_base_inference.py
+│   ├── multi-stage_hybrid_RAG_API.py
+│   ├── multi-stage_hybrid_RAG_API_parent_child_API.py
+│   ├── multi-stage_hybrid_RAG_Ollama.py
+│   ├── multi-stage_hybrid_RAG_API_parent_child_Ollama.py
+│   ├── LLM_judger.py
 └── README.md
 
 ```
@@ -82,8 +90,8 @@ Each stage folder has its own short README with the exact command to run it.
 
 ### Install
 ```bash
-git clone https://github.com/[your-username]/[repo-name].git
-cd [repo-name]
+git clone https://github.com/ssaadatnasab/MRP&MSHRAG-Multimodal-RAG-Preprocessing & Multi-Stage-Hybrid-RAG.git
+cd MRP&MSHRAG-Multimodal-RAG-Preprocessing & Multi-Stage-Hybrid-RAG
 
 # Create and activate a virtual environment (optional but recommended)
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
