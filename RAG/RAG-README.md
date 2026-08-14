@@ -1,4 +1,4 @@
-# RAG & Judger Tools
+# RAG
 
 Lightweight toolkit for retrieval-augmented generation (RAG) workflows and automated answer judging. The repository contains scripts to build a hybrid retriever (BM25 + dense FAISS + MMR + reranking), run LLM inference (including an Ollama-compatible client), and evaluate/generated answers with a simple judger.
 
