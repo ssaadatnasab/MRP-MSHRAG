@@ -34,18 +34,25 @@ The Python dependencies are listed in `requirements.txt`. Key packages used by t
 
 - pandas
 - numpy
-- openai
 - sentence-transformers
 - faiss-cpu
 - rank_bm25
 - langchain
 - langchain-huggingface
 - langchain-community
-- scikit-learn
 - python-dotenv
-- requests
-- marker-pdf
 
+# Core data and ML stack
+pip install pandas numpy
+
+# Embeddings, FAISS and reranking
+pip install sentence-transformers faiss-cpu rank_bm25
+
+# LangChain and related helpers
+pip install langchain langchain-huggingface langchain-community
+
+# API client, environment helpers, and utilities
+pip install openai python-dotenv requests
 
 ## Layout & important files
 
