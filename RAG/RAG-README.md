@@ -53,8 +53,6 @@ The Python dependencies are listed in `requirements.txt`. Key packages used by t
 - `Inference_result+BM25+Dense_FAISS_RAG _Parent_Child.py` — Parent/child corpus loader and retriever (children for search, parents for LLM context).
 - `Inference_result+BM25+Dense_FAISS_RAG_Ollama.py` and `Inference_result_Ollama.py` — Variants that target local Ollama HTTP server or Ollama-compatible model endpoints.
 - `Qwen_3_max_judger.py` — Judger that evaluates generated answers against references and writes structured scores.
-- `requirements.txt` — Python dependencies.
-- `.gitignore` — Common ignores; `output/` is ignored by default.
 
 ## Usage examples
 
@@ -94,15 +92,6 @@ python Qwen_3_max_judger.py \
 	--output_file output/judged.xlsx
 ```
 
-## Stages & examples
-
-Below is an example-style description you can adapt for documenting multi-stage processing. It follows the same style used in other projects (compact stage descriptions, per-stage commands, flags and behavior).
-
-### Stage: Build corpus & enrich metadata
-
-Prepare your corpus as JSONL files (one chunk per line) or Markdown files. For parent-child corpora ensure the two files `strategy3_children.jsonl` and `strategy3_parents.jsonl` are present in the corpus folder.
-
-Example: building and enriching chunk corpuses is outside this repo; once you have `*.jsonl` in `corpus/`, the retriever scripts will load them.
 
 ### Stage: Retrieval + Answering
 
