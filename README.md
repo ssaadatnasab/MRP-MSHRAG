@@ -57,11 +57,12 @@ answers:
 
 | Script | What it does |
 |---|---|
-| `Inference_result+BM25+Dense_FAISS_RAG.py` | Hybrid RAG over a flat corpus of JSONL/Markdown chunks |
-| `Inference_result+BM25+Dense_FAISS_RAG _Parent_Child.py` | Hybrid RAG over a parent/child (small-to-large) corpus |
-| `Inference_result+BM25+Dense_FAISS_RAG_Ollama.py` | Flat-corpus pipeline targeting a local Ollama / Ollama-compatible endpoint |
-| `Inference_result_Ollama.py` | Ollama-compatible inference variant |
-| `Qwen_3_max_judger.py` | Scores `Result` answers against reference `Answer`s, writes structured scores |
+| `multi-stage_hybrid_RAG_API` | Hybrid RAG over a flat corpus of JSONL/Markdown chunks |
+| `multi-stage_hybrid_RAG_parent_child_API` | Hybrid RAG over a parent/child (small-to-large) corpus |
+| `multi-stage_hybrid_RAG_Ollama.py` | Hybrid RAG over a flat corpus of JSONL/Markdown chunks targeting a local Ollama / Ollama-compatible endpoint |
+| `multi-stage_hybrid_RAG_parent_child_Ollama.py` | Hybrid RAG over a parent/child (small-to-large) corpus targeting a local Ollama / Ollama-compatible endpoint |
+| `LLM_base_inference.py` | Ollama-compatible inference variant |
+| `LLM_judger` | Scores `Result` answers against reference `Answer`s, writes structured scores |
 
 See `RAG/RAG-README.md` for full usage, CLI flags, and troubleshooting.
 
