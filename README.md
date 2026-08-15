@@ -1,5 +1,11 @@
-# MRP&MSHRAG: Multimodal-RAG-Preprocessing & Multi-Stage-Hybrid-RAG
-Six-stage pipeline that converts a corpus of engineering textbooks (PDF) into a chunked, retrieval-ready knowledge base, using domain-adapted LLM enrichment for formulas, tables, and figures, and four distinct chunking strategies for downstream RAG evaluation.
+# MRP & MSHRAG: Multimodal-RAG-Preprocessing & Multi-Stage-Hybrid-RAG
+Two-part pipeline. First, a six-stage preprocessing pipeline converts a
+corpus of engineering textbooks (PDF) into a chunked, retrieval-ready
+knowledge base, using domain-adapted LLM enrichment for formulas, tables,
+and figures, and four distinct chunking strategies. Second, a RAG &
+Judging toolkit runs hybrid retrieval inference against that knowledge
+base and automatically scores the generated answers.
+
 > Companion code for: *[Paper title], [Authors], [Venue, Year]* — [link/DOI once available]
 
 ## Preprocessing Pipeline overview
@@ -37,6 +43,27 @@ figures are all flattened the same way before chunking.
 | 6 | Unified Representation & Chunking | Merges all stage outputs into one enriched Markdown corpus, then applies four chunking strategies | `06_unified_chunking/` |
 
 Each stage folder has its own short README with the exact command to run it.
+
+## RAG & Judging
+
+A lightweight toolkit that runs hybrid retrieval-augmented generation
+against the Stage 6 chunk corpora and automatically judges the generated
+answers:
+
+- Hybrid retrieval: BM25 + dense embeddings + FAISS + MMR diversification + cross-encoder reranking
+- Flat-corpus and parent/child (small-to-large) corpus support
+- An OpenAI-compatible API client and a local Ollama client variant for on-prem models
+- An LLM-based judger that scores generated answers against reference answers
+
+| Script | What it does |
+|---|---|
+| `Inference_result+BM25+Dense_FAISS_RAG.py` | Hybrid RAG over a flat corpus of JSONL/Markdown chunks |
+| `Inference_result+BM25+Dense_FAISS_RAG _Parent_Child.py` | Hybrid RAG over a parent/child (small-to-large) corpus |
+| `Inference_result+BM25+Dense_FAISS_RAG_Ollama.py` | Flat-corpus pipeline targeting a local Ollama / Ollama-compatible endpoint |
+| `Inference_result_Ollama.py` | Ollama-compatible inference variant |
+| `Qwen_3_max_judger.py` | Scores `Result` answers against reference `Answer`s, writes structured scores |
+
+See `RAG/RAG-README.md` for full usage, CLI flags, and troubleshooting.
 
 ## Repository structure
 
