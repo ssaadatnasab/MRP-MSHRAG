@@ -35,12 +35,12 @@ figures are all flattened the same way before chunking.
 
 | # | Stage | What it does | Code |
 |---|---|---|---|
-| 1 | PDF Collection | Textbooks | *(corpus manifest, not code * |
-| 2 | Markdown Extraction | PDF → Markdown via [Marker](https://github.com/VikParuchuri/marker); structure and images preserved | `02_markdown_extraction/` |
-| 3 | Structural Normalization | Page-artifact cleanup, heading-format detection, heading-hierarchy normalization | `03_structural_normalization/` |
-| 4 | Formula & Table Enrichment | LLM-generated natural-language descriptions and metadata attached to every formula and table | `04_formula_table_enrichment/` |
-| 5 | Figure Info Extraction | Vision-language model produces semantic descriptions and structured metadata for every figure | `05_figure_extraction/` |
-| 6 | Unified Representation & Chunking | Merges all stage outputs into one enriched Markdown corpus, then applies four chunking strategies | `06_unified_chunking/` |
+| 1 | [PDF Collection](https://github.com/ssaadatnasab/MRP-MSHRAG/tree/main/01_pdf_collection) | Textbooks | *(corpus manifest, not code * |
+| 2 | [Markdown Extraction](https://github.com/ssaadatnasab/MRP-MSHRAG/tree/main/02_markdown_extraction) | PDF → Markdown via [Marker](https://github.com/VikParuchuri/marker); structure and images preserved | `02_markdown_extraction/` |
+| 3 | [Structural Normalization](https://github.com/ssaadatnasab/MRP-MSHRAG/tree/main/03_structural_normalization) | Page-artifact cleanup, heading-format detection, heading-hierarchy normalization | `03_structural_normalization/` |
+| 4 | [Formula & Table Enrichment](https://github.com/ssaadatnasab/MRP-MSHRAG/tree/main/04_formula_table_enrichment) | LLM-generated natural-language descriptions and metadata attached to every formula and table | `04_formula_table_enrichment/` |
+| 5 | [Figure Info Extraction](https://github.com/ssaadatnasab/MRP-MSHRAG/tree/main/05_figure_extraction) | Vision-language model produces semantic descriptions and structured metadata for every figure | `05_figure_extraction/` |
+| 6 | [Unified Representation & Chunking](https://github.com/ssaadatnasab/MRP-MSHRAG/tree/main/06_unified_chunking) | Merges all stage outputs into one enriched Markdown corpus, then applies four chunking strategies | `06_unified_chunking/` |
 
 Each stage folder has its own short README with the exact command to run it.
 
