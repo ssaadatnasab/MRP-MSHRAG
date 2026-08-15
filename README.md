@@ -101,9 +101,9 @@ See `RAG/RAG-README.md` for full usage, CLI flags, and troubleshooting.
 │   ├── RAG-README.md
 │   ├── LLM_base_inference.py
 │   ├── multi-stage_hybrid_RAG_API.py
-│   ├── multi-stage_hybrid_RAG_API_parent_child_API.py
+│   ├── multi-stage_hybrid_RAG_parent_child_API.py
 │   ├── multi-stage_hybrid_RAG_Ollama.py
-│   ├── multi-stage_hybrid_RAG_API_parent_child_Ollama.py
+│   ├── multi-stage_hybrid_RAG_parent_child_Ollama.py
 │   ├── LLM_judger.py
 └── README.md
 
