@@ -55,15 +55,6 @@ answers:
 - An OpenAI-compatible API client and a local Ollama client variant for on-prem models
 - An LLM-based judger that scores generated answers against reference answers
 
-| Script | What it does |
-|---|---|
-| `multi-stage_hybrid_RAG_API` | Hybrid RAG over a flat corpus of JSONL/Markdown chunks |
-| `multi-stage_hybrid_RAG_parent_child_API` | Hybrid RAG over a parent/child (small-to-large) corpus |
-| `multi-stage_hybrid_RAG_Ollama.py` | Hybrid RAG over a flat corpus of JSONL/Markdown chunks targeting a local Ollama / Ollama-compatible endpoint |
-| `multi-stage_hybrid_RAG_parent_child_Ollama.py` | Hybrid RAG over a parent/child (small-to-large) corpus targeting a local Ollama / Ollama-compatible endpoint |
-| `LLM_base_inference.py` | Ollama-compatible inference variant |
-| `LLM_judger` | Scores `Result` answers against reference `Answer`s, writes structured scores |
-
 See `RAG/RAG-README.md` for full usage, CLI flags, and troubleshooting.
 
 ## Repository structure
